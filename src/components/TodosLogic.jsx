@@ -21,6 +21,16 @@ const TodosLogic = () => {
           },
     ])
 
+    const addTodoItem = (title) => {
+        console.log(title);
+        const newTodo = {
+            id:4,
+            title: title,
+            completed: false
+        }
+        setTodos([...todos,newTodo])
+    }
+
     const handleChange = (id) => {
         setTodos(prevState => 
                 prevState.map((todo) => {
@@ -35,10 +45,14 @@ const TodosLogic = () => {
             )
     }
 
+    const delTodo = (id) => {
+        setTodos([...todos.filter(todo => (todo.id !== id))])
+    }
+
     return (
         <>
-        <InputTodo />
-        <TodosList todoProps={todos} handleChange={handleChange} />
+        <InputTodo addTodoItem={addTodoItem} />
+        <TodosList todoProps={todos} handleChange={handleChange} delTodo={delTodo} />
         </>
     )
 }
