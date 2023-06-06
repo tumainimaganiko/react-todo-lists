@@ -19,16 +19,17 @@ const InputTodo = ({ addTodoItem }) => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
-          placeholder="Write her"
+          placeholder="Add to your list"
           value={title}
           onChange={handleInput}
+          className="input-text"
         />
-        <button>Submit</button>
+        <button className="input-submit">Submit</button>
       </form>
-      <span>{message}</span>
+      <span className="submit-warning">{message}</span>
     </>
   );
 };

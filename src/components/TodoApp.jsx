@@ -1,13 +1,15 @@
-import TodosLogic from "@/components/TodosLogic"
+import TodosLogic from "@/components/TodosLogic";
+import Header from "@/components/Header";
 
 const TodoApp = () => {
-    return (
-        <div>
-            <h1>This is my Todo Application</h1>
-            <p>My todo items</p>
-            <TodosLogic />
-        </div>
-    )
-}
+  return (
+    <div className="wrapper">
+      <div className="todos">
+        <Header />
+        <TodosLogic />
+      </div>
+    </div>
+  );
+};
 
 export default TodoApp;
