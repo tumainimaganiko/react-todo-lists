@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useTodosContext } from "@/context/TodosContext";
 import styles from "@/styles/TodoItem.module.css";
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 
-const TodoItem = ({ itemList, handleChange, delTodo, setUpdate }) => {
+const TodoItem = ({ itemList }) => {
   const [edit, setEdit] = useState(false);
+  const { handleChange, delTodo, setUpdate } = useTodosContext()
   //   const editInputRef = useRef(null)
   const [updateInput, setUpdateInput] = useState(itemList.title);
 
