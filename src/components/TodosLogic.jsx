@@ -21,9 +21,20 @@ const TodosLogic = () => {
             completed: false,
           },
     ])
+    // Editing saved tasks
+    const setUpdate = (updatedTitle,id) => {
+        setTodos( 
+            todos.map(todo => {
+                if(todo.id === id){
+                    todo.title === updatedTitle;
+                }
+                return todo;
+            })
+            )
+    }
 
+    // Adding a new todo
     const addTodoItem = (title) => {
-        console.log(title);
         const newTodo = {
             id: uuidv4(),
             title: title,
@@ -32,6 +43,7 @@ const TodosLogic = () => {
         setTodos([...todos,newTodo])
     }
 
+    // Editing completed Status
     const handleChange = (id) => {
         setTodos(prevState => 
                 prevState.map((todo) => {
@@ -46,6 +58,7 @@ const TodosLogic = () => {
             )
     }
 
+    // Deleting selected todo
     const delTodo = (id) => {
         setTodos([...todos.filter(todo => (todo.id !== id))])
     }
@@ -53,7 +66,7 @@ const TodosLogic = () => {
     return (
         <>
         <InputTodo addTodoItem={addTodoItem} />
-        <TodosList todoProps={todos} handleChange={handleChange} delTodo={delTodo} />
+        <TodosList todoProps={todos} handleChange={handleChange} delTodo={delTodo} setUpdate={setUpdate} />
         </>
     )
 }
