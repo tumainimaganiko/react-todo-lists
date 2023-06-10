@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useTodosContext } from "@/context/TodosContext";
+import PropTypes from 'prop-types';
+import { useTodosContext } from "@/context/useTodosContext";
 import styles from "@/styles/TodoItem.module.css";
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
@@ -7,7 +8,6 @@ import { AiFillEdit } from "react-icons/ai";
 const TodoItem = ({ itemList }) => {
   const [edit, setEdit] = useState(false);
   const { handleChange, delTodo, setUpdate } = useTodosContext()
-  //   const editInputRef = useRef(null)
   const [updateInput, setUpdateInput] = useState(itemList.title);
 
   let viewMode = {};
@@ -55,8 +55,6 @@ const TodoItem = ({ itemList }) => {
       </div>
       <input
         type="text"
-        // ref={editInputRef}
-        // defaultValue={itemList.title}
         value={updateInput}
         className={styles.textInput}
         style={editMode}
@@ -68,3 +66,11 @@ const TodoItem = ({ itemList }) => {
 };
 
 export default TodoItem;
+
+TodoItem.propTypes = {
+  itemList: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+  }).isRequired,
+};

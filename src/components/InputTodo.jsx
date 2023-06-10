@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTodosContext } from "@/context/TodosContext";
+import { useTodosContext } from "@/context/useTodosContext";
 import { FaPlusCircle } from "react-icons/fa"
 
 const InputTodo = () => {
