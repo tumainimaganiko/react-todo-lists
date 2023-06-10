@@ -1,7 +1,8 @@
-import {  useState, useEffect, createContext, useContext } from "react";
+import {  useState, useEffect, createContext } from "react";
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from "uuid";
 
-const TodosContext = createContext(null);
+export const TodosContext = createContext(null);
 
 export const TodosProvider = ({ children }) => {
 
@@ -74,15 +75,7 @@ export const TodosProvider = ({ children }) => {
     </TodosContext.Provider>
   );
 };
-export const useTodosContext = () => useContext(TodosContext);
 
-// const TodosContext = createContext(null);
-
-// export const TodosProvider = ({ children }) => {
-//   return (
-//     <TodosContext.Provider value={'todos data'}>
-//       {children}
-//     </TodosContext.Provider>
-//   );
-// };
-// export const useTodosContext = () => useContext(TodosContext);
+TodosProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
