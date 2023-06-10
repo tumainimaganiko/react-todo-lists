@@ -1,12 +1,11 @@
-import {  useState, useEffect, createContext } from "react";
-import PropTypes from 'prop-types';
+import { useState, useEffect, createContext } from "react";
+import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 export const TodosContext = createContext(null);
 
 export const TodosProvider = ({ children }) => {
-
-    // Retrieving Data from localStorage
+  // Retrieving Data from localStorage
   const getInitialTodos = () => {
     const temp = localStorage.getItem("myTodos");
     const savedTodo = JSON.parse(temp);
@@ -20,7 +19,7 @@ export const TodosProvider = ({ children }) => {
     localStorage.setItem("myTodos", tempData);
   }, [todos]);
 
-    // Editing saved tasks
+  // Editing saved tasks
   const setUpdate = (updatedTitle, id) => {
     setTodos(
       todos.map((todo) => {

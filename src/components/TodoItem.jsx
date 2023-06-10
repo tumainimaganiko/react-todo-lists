@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useTodosContext } from "@/context/useTodosContext";
 import styles from "@/styles/TodoItem.module.css";
 import { FaTrash } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { AiFillEdit } from "react-icons/ai";
 
 const TodoItem = ({ itemList }) => {
   const [edit, setEdit] = useState(false);
-  const { handleChange, delTodo, setUpdate } = useTodosContext()
+  const { handleChange, delTodo, setUpdate } = useTodosContext();
   const [updateInput, setUpdateInput] = useState(itemList.title);
 
   let viewMode = {};
@@ -44,10 +44,10 @@ const TodoItem = ({ itemList }) => {
           onChange={() => handleChange(itemList.id)}
         />
         <button onClick={handleEdit}>
-        <AiFillEdit style={{ color: "#5e5e5e", fontSize: "16px" }} />
+          <AiFillEdit style={{ color: "#5e5e5e", fontSize: "16px" }} />
         </button>
         <button onClick={() => delTodo(itemList.id)}>
-        <FaTrash style={{ color: "#5e5e5e", fontSize: "16px" }} />
+          <FaTrash style={{ color: "#5e5e5e", fontSize: "16px" }} />
         </button>
         <span style={itemList.completed ? completedStyle : null}>
           {updateInput}

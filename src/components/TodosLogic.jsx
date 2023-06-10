@@ -3,7 +3,6 @@ import TodosList from "@/components/TodosList";
 import { TodosProvider } from "@/context/TodosContext";
 
 const TodosLogic = () => {
-
   return (
     <TodosProvider>
       <InputTodo />
